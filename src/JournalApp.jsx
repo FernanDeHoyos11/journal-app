@@ -1,10 +1,12 @@
 import { AppRoutes } from "./routes/AppRoutes"
-
+import { AppTheme } from "./themes"
 
 export const JournalApp = () => {
     return(
         <>
-          <AppRoutes></AppRoutes>
+        <AppTheme>
+           <AppRoutes/>
+        </AppTheme>
         </>
     )
 }
