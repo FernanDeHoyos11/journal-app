@@ -2,14 +2,34 @@ import { Google } from "@mui/icons-material"
 import { Button, Grid, Link, TextField, Typography } from "@mui/material"
 import { Link as RouterLink } from "react-router-dom"
 import { AuthLayout } from "../layout/AuthLayout"
+import { useForm } from "../../hooks/useForm"
+import { checkingAuthentication, startGoogleSignIn } from "../../store/auth/thunks"
+import { useDispatch } from "react-redux"
 
 
 export const LoginPage = () => {
 
+    const dispatch = useDispatch();
+    const {email, password, onInputChange} = useForm({
+        email: 'fernandehoyos@gmailcom',
+        password: 'fernan135',
+    });
+
+    const onSubmit = (event) =>{
+        event.preventDefault();
+        console.log({email, password})
+        dispatch(checkingAuthentication(email, password))
+    }
+
+    const onSingInGoogle = () =>{
+        console.log('google')
+        dispatch(startGoogleSignIn(email, password))
+    }
+
     return (
 
         <AuthLayout title="Login">
-            <form >
+            <form onSubmit={onSubmit} >
 
                 <Grid container>
                     <Grid item xs={12} sx={{ mb: 2 }}>
@@ -17,26 +37,32 @@ export const LoginPage = () => {
                             label="Correo"
                             type="email"
                             placeholder="yourname@gmail.com"
-                            fullWidth></TextField>
+                            fullWidth
+                            onChange={onInputChange}
+                            name="email"
+                            value={email}></TextField>
                     </Grid>
                     <Grid item xs={12} sx={{ mb: 2 }}>
                         <TextField
                             label="Contraseña"
                             type="password"
                             placeholder="Contraseña"
-                            fullWidth></TextField>
+                            fullWidth
+                            onChange={onInputChange}
+                            name="password"
+                            value={password}></TextField>
                     </Grid>
 
                     
 
                     <Grid container spacing={2} sx={{ mb: 1 }}>
                         <Grid item xs={12} sm={6}>
-                            <Button variant="contained" fullWidth>
+                            <Button type="submit" variant="contained" fullWidth>
                                 Login
                             </Button>
                         </Grid>
                         <Grid item xs={12} sm={6}>
-                            <Button variant="contained" fullWidth>
+                            <Button onClick={onSingInGoogle} variant="contained" fullWidth>
                                 <Google></Google>
                                 <Typography sx={{ ml: 1 }}> Google </Typography>
                             </Button>
