@@ -5,6 +5,7 @@ import { AuthLayout } from "../layout/AuthLayout"
 import { useForm } from "../../hooks/useForm"
 import { checkingAuthentication, startGoogleSignIn } from "../../store/auth/thunks"
 import { useDispatch } from "react-redux"
+import { SignInWithGoogle } from "../../firebase/provider"
 
 
 export const LoginPage = () => {
@@ -18,12 +19,13 @@ export const LoginPage = () => {
     const onSubmit = (event) =>{
         event.preventDefault();
         console.log({email, password})
-        dispatch(checkingAuthentication(email, password))
+        dispatch(checkingAuthentication())
     }
 
     const onSingInGoogle = () =>{
         console.log('google')
-        dispatch(startGoogleSignIn(email, password))
+        dispatch(startGoogleSignIn())
+
     }
 
     return (
