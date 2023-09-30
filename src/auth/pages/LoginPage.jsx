@@ -12,7 +12,7 @@ export const LoginPage = () => {
 
     const dispatch = useDispatch();
 
-    const {status, errorMessage} = useSelector(state => state.auth)
+    const {status, errorMessage,  } = useSelector(state => state.auth)
     const isAuthenticated = useMemo(() => status === 'checking', [status]);
 
     const {email, password, onInputChange, formState} = useForm({
