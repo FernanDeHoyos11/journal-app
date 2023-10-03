@@ -7,6 +7,10 @@ import { useForm } from "../../hooks/useForm"
 import { checkingAuthentication, startGoogleSignIn, startLoginWithEmailPassword } from "../../store/auth/thunks"
 import { useDispatch, useSelector } from "react-redux"
 
+const newForm = {
+    email: '',
+    password: '',
+}
 
 export const LoginPage = () => {
 
@@ -15,10 +19,7 @@ export const LoginPage = () => {
     const {status, errorMessage,  } = useSelector(state => state.auth)
     const isAuthenticated = useMemo(() => status === 'checking', [status]);
 
-    const {email, password, onInputChange, formState} = useForm({
-        email: 'fernandehoyos@gmailcom',
-        password: 'fernan135',
-    });
+    const {email, password, onInputChange, formState} = useForm(newForm);
 
     const isAuthenticating = useMemo(() => status === 'checking', [status])
 
