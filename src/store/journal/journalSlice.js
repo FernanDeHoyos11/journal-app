@@ -28,13 +28,28 @@ export const journalSlice = createSlice({
             state.messageSaved = ''
         },
         updateNotes: (state, {payload}) => {
-            state.isSaving = true;
+            state.isSaving = false;
             state.notes = state.notes.map( note => {
                 if(note.id === payload.id) {return payload}
                 return note
             })
             state.messageSaved = `${payload.title} actualizado correctamente`;
         },
+        clearNotesLogout: (state) => {
+            state.isSaving = false
+            state.messageSaved = ''
+            state.notes = []
+            state.active = null
+        },
+        setPhotosActiveNote: (state, {payload}) => {
+            state.active.imageUrls = [...state.active.imageUrls, ...payload]
+            state.isSaving = false
+        },
+        deleteNoteById: (state, {payload}) => {
+            state.active = null;
+            state.notes = state.notes.filter(note => note.id !== payload)
+            
+        }
     }
 });
 
@@ -44,4 +59,7 @@ export const {
     setNotes,
     setSaving,
     updateNotes,
-    savingNote } = journalSlice.actions;
+    savingNote,
+    setPhotosActiveNote,
+    clearNotesLogout,
+    deleteNoteById } = journalSlice.actions;
