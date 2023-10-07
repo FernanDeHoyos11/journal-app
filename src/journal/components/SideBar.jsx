@@ -4,7 +4,7 @@ import { useSelector } from "react-redux"
 import { SideBarItem } from "./SideBarItem"
 import { useState } from "react"
 
-export const SideBar = ({ drawerWidth = 240, ontoggleSidebar, isSidebarOpen }) => {
+export const SideBar = ({ drawerWidth = 230, ontoggleSidebar, isSidebarOpen }) => {
 
     const { displayName } = useSelector(state => state.auth)
     const { notes } = useSelector(state => state.journal)
@@ -32,7 +32,7 @@ export const SideBar = ({ drawerWidth = 240, ontoggleSidebar, isSidebarOpen }) =
                 color="inherit"
                 edge="start"
                 onClick={ontoggleSidebar}
-                sx={{ mr: 2, display: { sm: 'none' } }}>
+                sx={{ mr: 0, display: { sm: 'none' } }}>
 
                 <ChevronLeftOutlined />
 
@@ -44,7 +44,7 @@ export const SideBar = ({ drawerWidth = 240, ontoggleSidebar, isSidebarOpen }) =
                 <Divider />
                 <List>
                     {notes.map((note) => (
-                        <SideBarItem key={note.id} {...note} />
+                        <SideBarItem key={note.id} {...note} onOff={ontoggleSidebar} />
                     ))}
                 </List>
             </Drawer>

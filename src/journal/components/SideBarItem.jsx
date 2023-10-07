@@ -4,7 +4,7 @@ import { useMemo } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { setActionNotes } from "../../store/journal/journalSlice"
 
-export const SideBarItem = ({id, title = '', body, date, imageUrls = []}) => {
+export const SideBarItem = ({id, title = '', body, date, imageUrls = [], onOff}) => {
 
    const dispatch = useDispatch();
     
@@ -14,12 +14,13 @@ export const SideBarItem = ({id, title = '', body, date, imageUrls = []}) => {
     
     const onActiveNoteSelected = () => {
         dispatch(setActionNotes({id, title , body, date, imageUrls}))
+        onOff()
     }
 
     return (
         <ListItem key={id} disablePadding>
             <ListItemButton
-            onClick={onActiveNoteSelected}>
+            onClick={onActiveNoteSelected }>
                 <ListItemIcon>
                     <TurnedInNot></TurnedInNot>
                 </ListItemIcon>

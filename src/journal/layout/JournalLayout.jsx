@@ -24,7 +24,7 @@ export const JournalLayout = ({ children }) => {
 
             <Box
                 component='main'
-                sx={{ flexGrow: 1, p: 3 }}>
+                sx={{ flexGrow: 1, paddingRight: 4, pt: 3, pb: 3}}>
 
                 <Toolbar></Toolbar>
                 {children}
