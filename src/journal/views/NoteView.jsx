@@ -111,7 +111,7 @@ export const NoteView = () => {
                     minRows={5} />
             </Grid>
 
-            <Grid container justifyContent='end'>
+            <Grid container justifyContent='start'>
                 <Button
                 onClick={onDelete}
                 sx={{mt: 2}}
