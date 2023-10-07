@@ -8,7 +8,7 @@ import { setActionNotes, setNotes, startDeletingNote, startSaveNote, startUpload
 import Swal from "sweetalert2"
 import 'sweetalert2/dist/sweetalert2'
 
-
+const drawerWidth = 240
 
 export const NoteView = () => {
     const dispatch = useDispatch();
@@ -55,7 +55,17 @@ export const NoteView = () => {
             container
             direction='row'
             justifyContent='space-between'
-            sx={{ mb: 1 }}>
+            sx= {{ 
+            width: {
+               sm: `calc(100% - ${drawerWidth}px)`,
+               md: '100%',
+              },
+              "@media (min-width: 601px) and (max-width: 899px)": {
+                width: '100%', 
+                pl: 30 // Aplicar este ancho en pantallas con un ancho mínimo de 768px y un ancho máximo de 1200px
+              },
+            pl: {md: 30, }}}
+            >
 
             <Grid item>
                 <Typography fontSize={38} fontWeight='light' > {dateString} </Typography>

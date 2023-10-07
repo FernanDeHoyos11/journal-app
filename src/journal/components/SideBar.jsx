@@ -32,7 +32,7 @@ export const SideBar = ({ drawerWidth = 240, ontoggleSidebar, isSidebarOpen }) =
                 color="inherit"
                 edge="start"
                 onClick={ontoggleSidebar}
-                sx={{ mr: 0, display: { sm: 'none' } }}>
+                >
 
                 <ChevronLeftOutlined />
 
@@ -43,10 +43,15 @@ export const SideBar = ({ drawerWidth = 240, ontoggleSidebar, isSidebarOpen }) =
                 </Toolbar>
                 <Divider />
                 <List>
+                    
                     {notes.map((note) => (
+                       
                         <SideBarItem key={note.id} {...note} onOff={ontoggleSidebar} />
+                        
                     ))}
+                    
                 </List>
+                
             </Drawer>
         </Toolbar>
 
