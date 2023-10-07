@@ -52,7 +52,7 @@ export const LoginPage = () => {
                             name="email"
                             value={email}></TextField>
                     </Grid>
-                    <Grid item xs={12} sx={{ mb: 2 }}>
+                    <Grid item xs={12}  sx={{ mb: 2 }} >
                         <TextField
                             label="Contraseña"
                             type="password"
@@ -65,19 +65,19 @@ export const LoginPage = () => {
 
                     
 
-                    <Grid container spacing={2} sx={{ mb: 1 }}>
+                    <Grid container spacing={2} sx={{ mb: 1 }} >
                     <Grid 
                      item
                      xs={12}
                      display={!!errorMessage ? '' : 'none'} >
                             <Alert severity="error" >{errorMessage}</Alert>
                         </Grid>
-                        <Grid item xs={12} >
+                        <Grid item xs={12} sm={ 6 } >
                             <Button disabled={isAuthenticated} type="submit" variant="contained" fullWidth >
                                 Login
                             </Button>
                         </Grid>
-                        <Grid item xs={12} >
+                        <Grid item xs={12} sm={ 6 } >
                             <Button disabled={isAuthenticated} onClick={onSingInGoogle} variant="contained" fullWidth>
                                 <Google></Google>
                                 <Typography sx={{ ml: 1 }}> Google </Typography>

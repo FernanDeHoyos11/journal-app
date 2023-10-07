@@ -1,10 +1,12 @@
-import { LogoutOutlined, MenuBookOutlined } from "@mui/icons-material"
+import { ChevronLeftOutlined, LogoutOutlined, MenuBookOutlined, MenuOutlined } from "@mui/icons-material"
 import { AppBar, Grid, IconButton, Toolbar, Typography } from "@mui/material"
 import { startLogOut } from "../../store/auth/thunks"
 import { useDispatch } from "react-redux"
+import { useState } from "react"
 
 
-export const Navbar = ({ drawerWith = 240 }) => {
+export const Navbar = ({ drawerWidth = 240, toggleSidebar }) => {
+
 
     const dispatch = useDispatch()
 
@@ -15,18 +17,18 @@ export const Navbar = ({ drawerWith = 240 }) => {
     return (
         <AppBar position="fixed"
             sx={{
-                width: { sm: `calc(100% - ${drawerWith}px)` },
-                ml: { sm: `${drawerWith}px` }
+                width: { sm: `calc(100% - ${drawerWidth}px)` },
+                ml: { sm: `${drawerWidth}px` }
             }}>
 
             <Toolbar>
                 <IconButton
                     color="inherit"
                     edge="start"
-                    sx={{ mr: 2, display: { sm: 'none' } }}>
-
-                    <MenuBookOutlined />
-                    
+                    onClick={toggleSidebar}
+                    sx={{ mr: 2, display: { sm: "none" } }}
+                >
+                    <MenuOutlined />
                 </IconButton>
 
                 <Grid
@@ -37,9 +39,9 @@ export const Navbar = ({ drawerWith = 240 }) => {
                     <Typography variant="h6" noWrap component='div'>JournalApp</Typography>
 
                     <IconButton color="error"
-                    onClick={onLogout}>
+                        onClick={onLogout}>
 
-                        <LogoutOutlined  />
+                        <LogoutOutlined />
 
                     </IconButton>
                 </Grid>
