@@ -5,9 +5,9 @@ import { useDispatch } from "react-redux"
 import { useState } from "react"
 
 
-export const Navbar = ({ drawerWidth = 240, toggleSidebar }) => {
+export const Navbar = ({ drawerWidth = 240, open }) => {
 
-
+ 
     const dispatch = useDispatch()
 
     const onLogout = () => {
@@ -22,15 +22,17 @@ export const Navbar = ({ drawerWidth = 240, toggleSidebar }) => {
             }}>
 
             <Toolbar>
-                <IconButton
-                    color="inherit"
-                    edge="start"
-                    onClick={toggleSidebar}
-                    sx={{ mr: 2, display: { sm: "none" } }}
-                >
-                    <MenuOutlined />
-                </IconButton>
 
+            <IconButton
+                color="inherit"
+                edge="start"
+                onClick={open}
+                sx={{ mr: 2, display: { sm: 'none' } }}>
+
+                <MenuOutlined />
+
+            </IconButton>
+               
                 <Grid
                     container
                     direction='row'
@@ -39,9 +41,9 @@ export const Navbar = ({ drawerWidth = 240, toggleSidebar }) => {
                     <Typography variant="h6" noWrap component='div'>JournalApp</Typography>
 
                     <IconButton color="error"
-                        onClick={onLogout}>
+                    onClick={onLogout}>
 
-                        <LogoutOutlined />
+                        <LogoutOutlined  />
 
                     </IconButton>
                 </Grid>
