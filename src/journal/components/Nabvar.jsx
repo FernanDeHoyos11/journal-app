@@ -5,7 +5,7 @@ import { useDispatch } from "react-redux"
 import { useState } from "react"
 
 
-export const Navbar = ({ drawerWidth = 230, open }) => {
+export const Navbar = ({ drawerWidth = 240, open }) => {
 
  
     const dispatch = useDispatch()

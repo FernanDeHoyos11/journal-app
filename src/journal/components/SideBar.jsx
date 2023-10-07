@@ -4,7 +4,7 @@ import { useSelector } from "react-redux"
 import { SideBarItem } from "./SideBarItem"
 import { useState } from "react"
 
-export const SideBar = ({ drawerWidth = 230, ontoggleSidebar, isSidebarOpen }) => {
+export const SideBar = ({ drawerWidth = 240, ontoggleSidebar, isSidebarOpen }) => {
 
     const { displayName } = useSelector(state => state.auth)
     const { notes } = useSelector(state => state.journal)

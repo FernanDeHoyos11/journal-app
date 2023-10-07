@@ -2,7 +2,7 @@ import { Box, Toolbar } from "@mui/material"
 import { Navbar, SideBar } from "../components";
 import { useState } from "react";
 
-const drawerWith = 240;
+const drawerWidth = 250;
 
 export const JournalLayout = ({ children }) => {
     const [isSidebarOpen, setIsSidebarOpen] = useState(false);
@@ -18,8 +18,8 @@ export const JournalLayout = ({ children }) => {
     return (
         <Box sx={{ display: 'flex' }}>
 
-            <Navbar drawerWidth={drawerWith} open={ontoggleSidebar} />
-            <SideBar drawerWidth={drawerWith} ontoggleSidebar={ontoggleSidebar} isSidebarOpen={isSidebarOpen}  />
+            <Navbar drawerWidth={drawerWidth} open={ontoggleSidebar} />
+            <SideBar drawerWidth={drawerWidth} ontoggleSidebar={ontoggleSidebar} isSidebarOpen={isSidebarOpen}  />
 
 
             <Box

@@ -15,8 +15,8 @@ export const NothingSelectedView = () => {
             <Grid item xs={12}>
                 <StarOutline sx={{fontSize: 100, color: 'white'}} />
             </Grid>
-            <Grid item xs={12}>
-                <Typography variant="h5" justifyContent='center' color= 'white'> Seleccione o cree una entrada </Typography>
+            <Grid item xs={6}>
+                <Typography variant="p" justifyContent='center' color= 'white'> Seleccione o cree una entrada </Typography>
             </Grid>
 
         </Grid>
